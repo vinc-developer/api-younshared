@@ -68,7 +68,7 @@ async function deleteById(id){
       await commentsService.deleteById(el.id);
     }
     for (const el of post.likes) {
-      await likesService.deleteById(el.idPost);
+      await likesService.deleteLike(el);
     }
     await postsRepository.deleteById(id);
   }catch (e) {

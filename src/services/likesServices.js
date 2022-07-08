@@ -14,7 +14,6 @@ async function getByIdPost(id){
     }
 }
 
-
 async function insert(body){
     try {
         return await likesRepository.insert(body);
@@ -23,9 +22,9 @@ async function insert(body){
     }
 }
 
-async function deleteById(id) {
+async function deleteLike(like) {
     try{
-        await likesRepository.deleteById(id);
+       return await likesRepository.deleteLike(like);
     }catch (e) {
         throw e;
     }
@@ -33,6 +32,6 @@ async function deleteById(id) {
 
 module.exports = {
     getByIdPost,
-    deleteById,
+    deleteLike,
     insert,
 }

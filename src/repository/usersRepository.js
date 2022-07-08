@@ -9,6 +9,10 @@ async function getById(id){
         return user;
     }catch (e) {
         throw new Error("Internal Error: server doesn't work");
+    }finally {
+        if (co !== null) {
+            co.end();
+        }
     }
 }
 

@@ -39,6 +39,7 @@ async function deleteById(id){
     const co = await db.getConnection();
     try{
         await co.execute(DELETE_BY_ID, [id]);
+        return true;
     }catch (e) {
         throw new Error("Internal Error: server doesn't work");
     }

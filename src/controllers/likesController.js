@@ -12,10 +12,12 @@ const insert = async (req, res, next) => {
     }
 }
 
-const deleteById = async (req, res, next) => {
-    const id = req.params.id;
+const deleteLike = async (req, res, next) => {
+    const like = req.body;
     try{
-        await likesService.deleteById(id);
+       const result =  await likesService.deleteLike(like.like);
+       if(!result){
+       }
         res.status(200).send({message: "le like a bien été supprimé"});
     }catch (e) {
         next(e);
@@ -24,5 +26,5 @@ const deleteById = async (req, res, next) => {
 
 module.exports = {
     insert,
-    deleteById
+    deleteLike
 }

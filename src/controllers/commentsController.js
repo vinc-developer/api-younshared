@@ -13,7 +13,9 @@ const insert = async (req, res, next) => {
 const deleteById = async (req, res, next) => {
     const id = req.params.id;
     try{
-        await commentsService.deleteById(id);
+        const result = await commentsService.deleteById(id);
+        if(!result){
+        }
         res.status(200).send({message: "le commentaire a bien été supprimé"});
     }catch (e) {
         next(e);

@@ -23,6 +23,10 @@ async function getAllHome(){
     return posts;
   }catch (e) {
     throw new Error("Internal Error: server doesn't work");
+  }finally {
+    if (co !== null) {
+      co.end();
+    }
   }
 }
 
@@ -33,6 +37,10 @@ async function getAllByUser(id){
     return posts;
   }catch (e) {
     throw new Error("Internal Error: server doesn't work");
+  }finally {
+    if (co !== null) {
+      co.end();
+    }
   }
 }
 

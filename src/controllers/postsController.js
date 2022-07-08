@@ -36,7 +36,9 @@ const updateById = async (req, res, next) => {
 const deleteById = async (req, res, next) => {
   const id = req.params.id;
   try{
-    await postsService.deleteById(id);
+    const result = await postsService.deleteById(id);
+    if(!result){
+    }
     res.status(200).send({message: "le post a bien été supprimé"});
   }catch (e) {
     next(e);
