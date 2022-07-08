@@ -1,0 +1,40 @@
+CREATE DATABASE `younshard_db` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+USE `younshard_db`;
+
+CREATE TABLE IF NOT EXISTS users (
+  `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `firstname` VARCHAR(255) NOT NULL,
+  `lastname` VARCHAR(255) NOT NULL,
+  `picture_profil` VARCHAR(255) NOT NULL,
+  `work` VARCHAR(255) NOT NULL,
+  `email` VARCHAR(255) NOT NULL UNIQUE,
+  `password` VARCHAR(255) NOT NULL
+)Engine = InnoDB;
+
+CREATE TABLE IF NOT EXISTS posts (
+  `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `text` VARCHAR(8000) NULL,
+  `picture_posts` VARCHAR(255) NOT NULL,
+  `date_created` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
+  `id_user` INT NOT NULL
+)Engine = InnoDB;
+
+CREATE TABLE IF NOT EXISTS comments (
+  `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `id_post` INT NOT NULL,
+  `text` VARCHAR(255) NOT NULL,
+  `id_user` INT NOT NULL
+)Engine = InnoDB;
+
+CREATE TABLE IF NOT EXISTS likes (
+  `id_user` INT NOT NULL,
+  `id_posts` INT NOT NULL
+)Engine = InnoDB;
+
+ALTER TABLE likes ADD PRIMARY KEY (`id_user`, `id_posts`);
+
+ALTER TABLE comments ADD FOREIGN KEY (`id_user`) REFERENCES users(`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE comments ADD FOREIGN KEY (`id_post`) REFERENCES posts(`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+ALTER TABLE posts ADD FOREIGN KEY (`id_user`) REFERENCES users(`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
