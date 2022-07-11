@@ -16,10 +16,10 @@ app.use((req, res, next) =>{
 });
 
 // routes principales qui appellent le fichier route qui correspond
-app.use('/posts', require("./src/routes/postsRoutes"));
-app.use('/users', require("./src/routes/usersRoutes"));
-app.use('/likes', require("./src/routes/likesRoutes"));
-app.use('/comments', require("./src/routes/commentsRoutes"));
+app.use('/posts', require("./src/posts/routes/postsRoutes"));
+app.use('/users', require("./src/user/routes/usersRoutes"));
+app.use('/likes', require("./src/posts/routes/likesRoutes"));
+app.use('/comments', require("./src/posts/routes/commentsRoutes"));
 //error handler middleware
 //gestion des erreurs
 app.use((err, req, res,next) => {

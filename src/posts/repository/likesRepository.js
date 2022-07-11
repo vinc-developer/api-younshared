@@ -1,4 +1,4 @@
-const db = require("../config/database/database");
+const db = require("../../config/database/database");
 
 const SELECT_ALL_LIKES_BY_POST = 'SELECT * FROM likes WHERE id_posts = ?';
 const INSERT = `INSERT INTO likes (id_user, id_posts) VALUE (?,?)`;

@@ -1,4 +1,4 @@
-const db = require("../config/database/database");
+const db = require("../../config/database/database");
 
 SELECT_USER_BY_ID = `SELECT * FROM users WHERE id = ?`;
 

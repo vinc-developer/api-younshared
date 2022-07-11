@@ -1,4 +1,4 @@
-const db = require("../config/database/database");
+const db = require("../../config/database/database");
 
 const SELECT_ALL_POSTS = `SELECT * FROM posts ORDER BY date_created DESC LIMIT 5`;
 const SELECT_ALL_BY_USER = `SELECT * FROM posts  WHERE id_user = ? ORDER BY date_created DESC LIMIT 5`;

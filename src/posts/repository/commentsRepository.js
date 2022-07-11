@@ -1,4 +1,4 @@
-const db = require("../config/database/database");
+const db = require("../../config/database/database");
 
 const SELECT_ALL_BY_ID_POST = `SELECT * FROM comments WHERE id_post = ?`;
 const INSERT = `INSERT INTO comments (id_post, text, id_user) VALUE (?,?,?) `;

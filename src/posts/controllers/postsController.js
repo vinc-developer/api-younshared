@@ -21,6 +21,7 @@ const getAllByUser = async (req, res, next) => {
 
 const insert = async (req, res, next) => {
   const body = req.body;
+  // schema de validation qui conbtrole les données. AJV, JOI
   try {
    const post = await postsService.insert(body.post)
     res.status(200).send(post);

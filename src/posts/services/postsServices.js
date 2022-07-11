@@ -1,7 +1,7 @@
 const postsRepository = require('../repository/postsRepository');
-const commentsService = require('../services/commentsServices');
-const likesService = require('../services/likesServices');
-const usersService = require('../services/usersServices');
+const commentsService = require('./commentsServices');
+const likesService = require('./likesServices');
+const usersService = require('../../user/services/usersServices');
 const Posts = require("../models/Posts");
 
 async function getAllHome(){

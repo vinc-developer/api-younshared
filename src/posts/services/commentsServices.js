@@ -1,6 +1,6 @@
 const Comments = require("../models/Comments");
 const commentsRepository = require("../repository/commentsRepository");
-const userService = require("../services/usersServices");
+const userService = require("../../user/services/usersServices");
 
 async function getByIdPost(id){
     try{
